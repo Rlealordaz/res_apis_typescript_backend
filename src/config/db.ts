@@ -10,6 +10,12 @@ const connectionString =
 const db = new Sequelize(connectionString, {
   models: [__dirname + "/../models/**/*"],
   logging: false,
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
 });
 
 export default db;
